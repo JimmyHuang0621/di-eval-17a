@@ -10,10 +10,14 @@ function getKEY(req, res) {
         "TS": moment.utc().format()
       })
     } else {
-      res.json(404)
+      res.json(404, {
+        "message": "KEY未被定義"
+      })
     }
   } else {
-    res.json(400)
+    res.json(400, {
+      "message": "KEY not safe"
+    })
   }
 }
 
@@ -33,7 +37,9 @@ function deleteKEY(req, res) {
       })
     }
   else {
-    res.json(400)
+    res.json(400, {
+      "message": "KEY not safe"
+    })
   }
 }
 
@@ -45,7 +51,9 @@ function postKEY(req, res) {
     })
   }
   else {
-    res.json(400)
+    res.json(400, {
+      "message": "KEY not safe"
+    })
   }
 }
 
