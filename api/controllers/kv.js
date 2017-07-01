@@ -11,7 +11,7 @@ function getKEY(req, res) {
       })
     } else {
       res.json(404, {
-        "message": "KEY未被定義"
+        "message": "KEY not definition"
       })
     }
   } else {

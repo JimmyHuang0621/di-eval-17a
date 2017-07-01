@@ -18,13 +18,13 @@ module.exports = function (req, res) {
             })
         } else {
             res.json(413, {
-                "message": "字元過多"
+                "message": "Too many characters"
             })
         }
 
     } else {
         res.json(400, {
-            "message": "輸入錯誤"
+            "message": "input error"
         })
     }
 }
