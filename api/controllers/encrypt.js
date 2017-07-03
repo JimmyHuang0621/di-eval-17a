@@ -12,9 +12,15 @@ module.exports = function (req, res) {
                 }
             }
             request(opt, function (err, rep, body) {
-                res.json({
-                    'ciphertext': body.ciphertext
-                })
+                let ciphertext = body.ciphertext
+                if (ciphertext === undefined)
+                    res.json(502,{
+                        "message": "Internal server error"
+                    })
+                else
+                    res.json({
+                        'ciphertext': ciphertext
+                    })
             })
         } else {
             res.json(413, {
