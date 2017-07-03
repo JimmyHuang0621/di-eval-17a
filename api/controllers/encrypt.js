@@ -3,8 +3,8 @@ var byte = require('js-string-byte')
 
 module.exports = function (req, res) {
     let plaintext = req.body.plaintext
-    if (req.headers["content-type"] === "application/json" && plaintext && !plaintext.match(/[^0-9,a-f]/)) {
-        if (byte(plaintext)<= 16) {
+    if (req.headers["content-type"] === "application/json" && plaintext && !plaintext.match(/[^0-9a-fA-F]/)) {
+        if (byte(plaintext) <= 16) {
             let opt = {
                 uri: 'https://nkiua09s52.execute-api.ap-northeast-1.amazonaws.com/dev/encrypt',
                 method: 'POST',
